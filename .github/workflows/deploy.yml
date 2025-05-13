@@ -1,0 +1,22 @@
+name: Deploy to Fly.io
+
+on:
+  push:
+    branches:
+      - main  # Trigger deploys on changes to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Fly.io
+        uses: superfly/flyctl-actions/setup-flyctl@v1
+
+      - name: Deploy to Fly.io
+        run: flyctl deploy --app your-app-name
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
