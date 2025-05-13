@@ -1,0 +1,9 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Disease Prediction Chatbot</title>
+</head>
+<body>
+    <h2>Symptom-based Disease Prediction</h2> <form method="post"> <label>Enter your symptoms:</label><br> <textarea name="user_input" rows="4" cols="50" required></textarea><br> <label>Select target language:</label> <input name="language" type="text" placeholder="e.g., French, Hindi" required><br><br> <button type="submit">Predict</button> </form> {% if response %} <h3>Prediction:</h3> <p>{{ response }}</p> <h3>Translated Response:</h3> <p>{{ translation }}</p> {% endif %}
+</body>
+</html> 
